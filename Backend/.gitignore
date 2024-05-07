@@ -11,6 +11,7 @@ binary
 go.work
 
 .air.toml
+.env
 /tmp
 /tmpfiles
 /Note
