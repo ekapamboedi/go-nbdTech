@@ -1,8 +1,10 @@
 package main
 
 import (
-	"github.com/ekapamboedi/goreact/config"
+	"github.com/ekapamboedi/go-project/config"
 	"github.com/gin-gonic/gin"
+
+	User "github.com/ekapamboedi/go-project/services/user"
 )
 
 func main() {
@@ -34,6 +36,12 @@ func main() {
 		response["message"] = "Hello! You have been doing great things and it's matter!"
 		ctx.IndentedJSON(200, response)
 	})
+
+	// needs to add middleware amd Authenticate
+	UserRoute := r.Group("/api/v1/user")
+	{
+		User.UserRoute(UserRoute)
+	}
 
 	r.Run(":" + config.SERVER_PORT)
 }

@@ -1,4 +1,4 @@
-module github.com/ekapamboedi/goreact
+module github.com/ekapamboedi/go-project
 
 go 1.21.5
 
