@@ -1,8 +1,10 @@
 package model
 
-import (
-	"database/sql"
-)
+import "database/sql"
+
+// import (
+// 	"database/sql"
+// )
 
 type User struct {
 	UserId   sql.NullInt64  `json:"id"`

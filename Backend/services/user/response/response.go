@@ -1,7 +1,7 @@
 package response
 
 import (
-	"github.com/ekapamboedi/go-project/model"
+	"github.com/ekapamboedi/go-nbdTech/model"
 )
 
 // Core Response
