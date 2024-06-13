@@ -11,6 +11,7 @@ import (
 
 func EmployeeRoute(r *gin.RouterGroup) {
 	r.GET("/test", Test)
+	r.POST("/create", Create)
 }
 
 func Test(ctx *gin.Context) {
@@ -48,5 +49,5 @@ func Create(ctx *gin.Context) {
 	res.Status = "Created"
 	res.Message = "Success"
 
-	ctx.IndentedJSON(201, res)
+	ctx.IndentedJSON(201, "heh")
 }

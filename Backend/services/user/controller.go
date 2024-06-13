@@ -1,8 +1,11 @@
 package User
 
 import (
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 
+	"github.com/ekapamboedi/go-nbdTech/services/user/request"
 	"github.com/ekapamboedi/go-nbdTech/services/user/response"
 )
 
@@ -23,7 +26,7 @@ func Register(ctx *gin.Context) {
 	var res response.Response
 	var err error
 
-	err  = ctx.ShouldBindJSON(&req)
+	err = ctx.ShouldBindJSON(&req)
 	if err != nil {
 		fmt.Println(err.Error())
 		res.Status = "Bad Request"

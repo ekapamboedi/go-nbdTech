@@ -1,13 +1,14 @@
 package model
 
 type Employee struct {
-	Id         int64  `json:"Id"`
-	Name       string `json:"Name"`
-	Email      string `json:"Email"`
-	Phone      string `json:"Phone"`
-	Address    string `json:"Address"`
-	Created_at string `json:"Created_at"`
-	Updated_at string `json:"Update_at"`
+	// Id         sql.NullInt64  `json:"Id"`
+	Name    string `json:"Name" gorm:"column:Name"`
+	Phone   string `json:"Phone" gorm:"column:Phone"`
+	Email   string `json:"Email" gorm:"column:Email"`
+	Address string `json:"Address" gorm:"column:Address"`
+
+	// Created_at sql.NullString `json:"Created_at"`
+	// Updated_at sql.NullString `json:"Update_at"`
 }
 
 func (Employee) TableName() string {
