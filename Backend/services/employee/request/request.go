@@ -9,6 +9,7 @@ type RequestCreateEmployee struct {
 }
 
 type RequestUpdateEmployee struct {
+	Id      string `jsom:"Id"`
 	Name    string `jsom:"Name"`
 	Phone   string `jsom:"Phone"`
 	Email   string `jsom:"Email"`

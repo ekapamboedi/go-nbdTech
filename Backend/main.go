@@ -24,6 +24,7 @@ func main() {
 			response := map[string]string{}
 			response["status"] = "Success"
 			response["message"] = "Database successfully connected!"
+			defer db.Close()
 			ctx.IndentedJSON(200, response)
 		}
 	})

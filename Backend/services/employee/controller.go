@@ -11,7 +11,9 @@ import (
 
 func EmployeeRoute(r *gin.RouterGroup) {
 	r.GET("/test", Test)
+	// Creating the employe from admin
 	r.POST("/create", Create)
+	r.POST("/update/:id", Update)
 }
 
 func Test(ctx *gin.Context) {
@@ -48,6 +50,34 @@ func Create(ctx *gin.Context) {
 
 	res.Status = "Created"
 	res.Message = "Success"
+	ctx.IndentedJSON(201, res)
+}
+func Update(ctx *gin.Context) {
+	var req request.RequestUpdateEmployee
+	var res response.Response
+	var err error
 
-	ctx.IndentedJSON(201, "heh")
+	Id := ctx.Param("id")
+	err = ctx.ShouldBindJSON(&req)
+	if err != nil {
+		fmt.Println(err.Error())
+		res.Status = "Bad Request"
+		res.Message = "Error occured"
+		ctx.AbortWithStatusJSON(400, res)
+		// go middleware.LogError(ctx.Request.URL.Path, ctx.Request.Method, err.Error(), identity)
+		return
+	}
+	fmt.Println("Id From Controller:", Id)
+	err = UpdateOne(req, Id)
+	if err != nil {
+		fmt.Println(err.Error())
+		res.Status = "Bad Request"
+		res.Message = err.Error()
+		ctx.AbortWithStatusJSON(400, res)
+		return
+	}
+
+	res.Status = "Created"
+	res.Message = "Success"
+	ctx.IndentedJSON(201, res)
 }

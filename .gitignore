@@ -1,0 +1,35 @@
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.txt
+binary
+
+*.test
+*.out
+go.work
+
+
+# Ignore executable files in Backend
+/Backend/*.exe
+/Backend/*.exe~
+/Backend/*.dll
+/Backend/*.so
+/Backend/*.dylib
+/Backend/*.txt
+/Backend/binary
+
+/Backend/*.test
+/Backend/*.out
+/Backend/go.work
+
+
+/Backend/.air.toml
+/Backend/.env
+/Backend/tmp
+/Backend/tmpfiles
+/Backend/Note
+
+# Ignore log files and node_modules in Frontend
+# /Frontend/

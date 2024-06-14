@@ -1,7 +1,7 @@
 package model
 
 type Employee struct {
-	// Id         sql.NullInt64  `json:"Id"`
+	Id      string `json:"Id" gorm:"column:Id"`
 	Name    string `json:"Name" gorm:"column:Name"`
 	Phone   string `json:"Phone" gorm:"column:Phone"`
 	Email   string `json:"Email" gorm:"column:Email"`

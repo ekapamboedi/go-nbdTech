@@ -78,12 +78,14 @@ func SupaCon() (*sql.DB, error) {
 	db, err := sql.Open("postgres", connStrSupa)
 	if err != nil {
 		return nil, err
+		db.Close()
 	}
 	err = db.Ping()
 	if err != nil {
 		db.Close()
 		return nil, err
 	}
+	db.Close()
 	fmt.Println("Supabase client initialized successfully")
 
 	// Querying the column names
